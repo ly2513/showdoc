@@ -11,7 +11,7 @@ $(function() {
     var default_cat_id = $("#default_cat_id").val();
     var item_id = $("#item_id").val();
     $.get(
-      "../catalog/catList", {
+      "index.php?m=Home&c=Catalog&a=catList", {
         "item_id": item_id
       },
       function(data) {
@@ -148,7 +148,7 @@ $(function() {
     var order = $("#order").val();
     saving = true;
     $.post(
-      "save", {
+      "index.php?m=Home&c=Page&a=save", {
         "page_id": page_id,
         "cat_id": cat_id,
         "order": order,
@@ -159,7 +159,7 @@ $(function() {
       function(data) {
         if (data.error_code == 0) {
           $.bootstrapGrowl("保存成功！");
-          window.location.href = "../item/show?page_id=" + data.data.page_id + "&item_id=" + item_id;
+          window.location.href = "index.php?m=Home&c=Item&a=show&page_id=" + data.data.page_id + "&item_id=" + item_id;
         } else {
           $.bootstrapGrowl("保存失败！");
 
