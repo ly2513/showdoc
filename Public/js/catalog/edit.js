@@ -68,7 +68,7 @@ $(function(){
                 function(data){
                   if (data.error_code == 0) {
                     alert("删除成功！");
-                    window.location.href="edit?item_id="+item_id;
+                    window.location.href="index.php?m=Home&c=Catalog&a=edit&item_id="+item_id;
                   }else{
                     if (data.error_message) {
                       alert(data.error_message);

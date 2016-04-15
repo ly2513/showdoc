@@ -16,6 +16,7 @@ return array(
         ':id\d' => 'Home/Item/Show?item_id=:1',
         'uid/:id\d' => 'Home/Item/showByUid?uid=:1'
     ),
+    'DEFAULT_CONTROLLER'    =>  'Item', // 默认控制器名称
     'URL_CASE_INSENSITIVE' => false,
     'URL_MODEL' => 0
 );
