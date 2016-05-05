@@ -70,7 +70,7 @@ $(function() {
     placeholder: "本编辑器支持Markdown编辑，左边编写，右边预览",
     imageUpload: true,
     imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp", "JPG", "JPEG", "GIF", "PNG", "BMP", "WEBP"],
-    imageUploadURL: "uploadImg",
+    imageUploadURL: "index.php?m=Home&c=Page&a=uploadImg",
     onload: function() {
       this.addKeyMap(keyMap);
     }

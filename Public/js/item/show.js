@@ -5,12 +5,12 @@ $(function(){
   var page_id = GetQueryString('page_id');
   //如果中没有指定page_id，则判断有没有父目录为0的页面，默认打开第一个
   if(!page_id) {
-    page_id = $(".doc-left li").children("a").attr("data-page-id");
+    page_id = $(".nav li").children("a").attr("data-page-id");console.log(page_id);
   };
   if(page_id !=null && page_id.toString().length>0)
   {
     var str = 'page_id='+page_id;
-    $(".doc-left li").each(function(){
+    $(".nav li").each(function(){
       url = $(this).children("a").attr("href");
       //如果链接中包含当前url的信息，两者相匹配
       if (url && url.indexOf(str) >= 0 ) {
@@ -82,9 +82,9 @@ $(function(){
   } 
 
   //点击左侧菜单事件
-  $(".doc-left li").click(function(){
+  $(".nav li").click(function(){
     //先把所有菜单的激活状态取消
-    $(".doc-left li").each(function(){
+    $(".nav li").each(function(){
       $(this).removeClass("active");
     });
     //先判断是否存在子菜单
@@ -120,8 +120,12 @@ $(function(){
       var item_id = $("#item_id").val();
       var base_url = $("#base_url").val();
       $(".page-edit-link").show();
-      $("#page-content").attr("src" , "index.php?m=Home&c=Page&a=index&page_id="+page_id);
+      $("#page-content").load("index.php?m=Home&c=Page&a=index&page_id="+page_id);
+      //$("#page-content").attr("src" , "index.php?m=Home&c=Page&a=index&page_id="+page_id);
       $("#edit-link").attr("href" , "index.php?m=Home&c=Page&a=edit&page_id="+page_id);
+      $("#page-link").attr("href" , "index.php?m=Home&c=Page&a=index&page_id="+page_id);
+      $("#word-link").attr("href" , "index.php?m=Home&c=Page&a=word&page_id="+page_id);
+      $("#md-link").attr("href" , "index.php?m=Home&c=Page&a=downmd&page_id="+page_id);
       $("#copy-link").attr("href" , "index.php?m=Home&c=Page&a=edit&item_id="+item_id+"&copy_page_id="+page_id);
       $("#share-page-link").html("http://"+window.location.host+base_url+"?m=Home&c=Item&a=show&item_id="+item_id+"&page_id="+page_id);
       $("#delete-link").attr("href" , "index.php?m=Home&c=Page&a=delete&page_id="+page_id);
